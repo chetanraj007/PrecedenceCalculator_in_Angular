@@ -1,0 +1,64 @@
+<section class="body_form">
+  <div class="body_form_content">
+    <div class="modal d-block position-relative">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center align-items-center"
+            style="background-image: url(./assets/img/enquiry-02.jpg); min-height: 130px;">
+            <h2 class="modal-title text-white">BODMAS Based Calculator</h2>
+          </div>
+          <div class="modal-body">
+            <form #calcForm="ngForm">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="Name"><i class="fa fa-edit"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Enter" minlength="1" name="calcData.calcInput"
+                  [(ngModel)]="calcData.calcInput" #calcData.calcInput="ngModel" autocomplete="off" maxlength="30">
+              </div>
+              <div class="text-center mb-2">
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation('1')">1</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation('2')">2</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation('3')">3</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation('(')">(</button>
+              </div>
+              <div class="text-center mb-2">
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation('4')">4</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation('5')">5</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation('6')">6</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation(')')">)</button>
+              </div>
+              <div class="text-center mb-2">
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation('7')">7</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation('8')">8</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation('9')">9</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation('0')">0</button>
+              </div>
+              <div class="text-center mb-2">
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation('+')">+</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation('-')">-</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation('*')">x</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="addOperation('/')">/</button>
+              </div>
+              <div class="text-center">
+                <button class="btn btn-danger mr-2" type="button" [disabled]="calcForm.invalid"
+                  (click)="clearInput()">Clear</button>
+                <button class="btn btn-success" type="button" [disabled]="calcForm.invalid"
+                  (click)="showResult()">=</button>
+              </div>
+              <div class="input-group mt-3" *ngIf="showResultFlag">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="Name">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result :
+                  </span>
+                </div>
+                <input type="text" class="form-control" name="calcData.result" [(ngModel)]="calcData.result"
+                  disabled=true #calcData.result="ngModel">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
